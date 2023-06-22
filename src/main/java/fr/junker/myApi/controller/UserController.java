@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,6 +34,11 @@ public class UserController {
     public User createUser(@RequestBody UserRequest userRequest){
         User result = userService.createUser(userRequest.getName(), userRequest.getAge());
         return result;
+    }
+
+    @PutMapping("/user")
+    public User updateUser(@RequestParam Integer id, @RequestBody UserRequest userRequest){
+        return userService.updateUser(id, userRequest.getName(), userRequest.getAge());
     }
 
 }
