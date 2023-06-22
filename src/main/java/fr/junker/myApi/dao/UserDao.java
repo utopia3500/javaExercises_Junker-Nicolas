@@ -45,9 +45,6 @@ public class UserDao implements IUserDao{
 		Connection conn = connector.createConnection();
 		User user = null;
 
-		System.out.println("--------------------------");
-		System.err.println("erreur getById: " + id);
-		System.out.println("--------------------------");
 		
 		String sql = "select id, name, age from user where id = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
