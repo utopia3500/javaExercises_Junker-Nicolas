@@ -3,6 +3,8 @@ package fr.junker.myApi.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,6 +27,12 @@ public class UserController {
     @GetMapping("/user/id")
     public User getUser(@RequestParam Integer id){
         return userService.getUser(id);
+    }
+
+    @PostMapping("/user")
+    public User createUser(@RequestBody UserRequest userRequest){
+        User result = userService.createUser(userRequest.getName(), userRequest.getAge());
+        return result;
     }
 
 }

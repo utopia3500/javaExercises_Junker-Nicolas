@@ -38,6 +38,11 @@ public class UserService {
     public List<User> getUsers(){
         return users;
     }
-
+    
+    public User createUser(String name, Integer age){
+        User user = new User(users.size()+1, name, age);
+        users.add(user);
+        return user;
+    }
     
 }
