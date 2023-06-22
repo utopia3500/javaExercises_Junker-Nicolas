@@ -5,56 +5,42 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import fr.junker.myApi.dao.IUserDao;
+import fr.junker.myApi.dao.UserDao;
 import fr.junker.myApi.model.User;
 
 @Service
 public class UserService {
-    private List<User> users;
+    private IUserDao dao;
 
     public UserService() {
-        users = new ArrayList<User>();
-
-        User user1 = new User(1, "Dupond", 50);
-        User user2 = new User(2, "Durand", 60);
-        User user3 = new User(3, "Martin", 35);
-
-        users.add(user1);
-        users.add(user2);
-        users.add(user3);
+        dao = new UserDao();
     }
 
-    public User getUser(Integer id){
-        User result = null;
-
-        for (User user : this.users){
-            if (user.getId() == id){
-                return user;               
-            }
-        }
-
-        return result;
+    public User getUser(Integer id) throws Exception{
+        return dao.getById(id);
     }
 
-    public List<User> getUsers(){
-        return users;
+    public List<User> getUsers() throws Exception{
+        return dao.getAll();
     }
     
-    public User createUser(String name, Integer age){
-        User user = new User(users.size()+1, name, age);
-        users.add(user);
-        return user;
+    public User createUser(String name, Integer age) throws Exception{
+        User user = new User(0, name, age);
+        return dao.add(user);
+        
     }
 
-    public User updateUser(Integer id, String name, Integer age){ 
-        for(User user : this.users){
-            if (user.getId() == id){
-                user.setName(name);
-                user.setAge(age);
-                return user;
-            }
-        }
-        return null;
+    public User updateUser(Integer id, String name, Integer age) throws Exception{ 
+        User user = new User(id, name, age);
+        dao.update(user);
+        return user;
 
+    }
+
+    public void deleteUser(Integer id) throws Exception{
+        User user = new User(id, "default", 0);
+        dao.delete(user);
     }
     
 }

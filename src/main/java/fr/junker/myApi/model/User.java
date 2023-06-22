@@ -11,11 +11,17 @@ public class User {
         this.age = age;
     }
 
+    
+
     public Integer getId() {
         return id;
     }
 
-    public String getName() {
+    public User() {
+    }
+
+
+  public String getName() {
         return name;
     }
 

@@ -2,6 +2,7 @@ package fr.junker.myApi.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,24 +22,29 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public List<User> getUsers(){
+    public List<User> getUsers() throws Exception{
         return userService.getUsers();
     }
 
     @GetMapping("/user/id")
-    public User getUser(@RequestParam Integer id){
+    public User getUser(@RequestParam Integer id) throws Exception{
         return userService.getUser(id);
     }
 
     @PostMapping("/user")
-    public User createUser(@RequestBody UserRequest userRequest){
+    public User createUser(@RequestBody UserRequest userRequest) throws Exception{
         User result = userService.createUser(userRequest.getName(), userRequest.getAge());
         return result;
     }
 
     @PutMapping("/user")
-    public User updateUser(@RequestParam Integer id, @RequestBody UserRequest userRequest){
+    public User updateUser(@RequestParam Integer id, @RequestBody UserRequest userRequest) throws Exception{
         return userService.updateUser(id, userRequest.getName(), userRequest.getAge());
+    }
+
+    @DeleteMapping("/user")
+    public void deleteUser(@RequestParam Integer id) throws Exception{
+        userService.deleteUser(id);
     }
 
 }
