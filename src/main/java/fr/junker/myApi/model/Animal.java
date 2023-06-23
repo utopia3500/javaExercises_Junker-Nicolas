@@ -1,4 +1,4 @@
-package fr.junker.myApi.controller;
+package fr.junker.myApi.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,8 +11,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class UserRequest {
+public class Animal {
+    private int id;
     private String name;
-    private Integer age;
- 
+    private String type;
+    private int weight;
 }
