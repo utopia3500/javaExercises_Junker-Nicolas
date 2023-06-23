@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import fr.junker.myApi.dao.IUserDao;
-import fr.junker.myApi.dao.UserDao;
+import fr.junker.myApi.dao.JdbcUserDao;
 import fr.junker.myApi.model.User;
 
 @Service
@@ -14,7 +14,7 @@ public class UserService {
     private IUserDao dao;
 
     public UserService() {
-        dao = new UserDao();
+        dao = new JdbcUserDao();
     }
 
     public User getUser(Integer id) throws Exception{

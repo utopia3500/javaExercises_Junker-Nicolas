@@ -14,11 +14,11 @@ import java.util.ArrayList;
 
 
 
-public class UserDao implements IUserDao{
+public class JdbcUserDao implements IUserDao{
 	
 	private MySQLConnector connector;
 	
-	public UserDao(){
+	public JdbcUserDao(){
 		connector = new MySQLConnector();
 	}
 	
