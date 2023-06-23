@@ -28,11 +28,13 @@ public class AnimalController {
     public ResponseEntity<List<Animal>> getAnimals() throws Exception{
         List<Animal> list = animalService.getAnimals();
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Controller", "AnimalController");
+        headers.add("Controller", "getAnimals");
         if (list == null || list.size() == 0){
+            headers.add("httpSatus", HttpStatus.NOT_FOUND.toString());
             return new ResponseEntity<List<Animal>>(null, headers, HttpStatus.NO_CONTENT);
         }
         else{
+            headers.add("httpSatus", HttpStatus.ACCEPTED.toString());
             return new ResponseEntity<List<Animal>>(list, headers, HttpStatus.ACCEPTED);
         }
         
@@ -45,9 +47,11 @@ public class AnimalController {
         headers.add("Controller", "getAnimal");
 
         if (animal == null){
+            headers.add("httpSatus", HttpStatus.NOT_FOUND.toString());
             return new ResponseEntity<Animal>(null, headers, HttpStatus.NO_CONTENT);
         }
         else{
+            headers.add("httpSatus", HttpStatus.ACCEPTED.toString());
             return new ResponseEntity<Animal>(animal, headers, HttpStatus.ACCEPTED);
         }
     }
@@ -59,9 +63,11 @@ public class AnimalController {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Controller", "createAnimal");
         if (animal == null){
+            headers.add("httpSatus", HttpStatus.NOT_FOUND.toString());
             return new ResponseEntity<Animal>(null, headers, HttpStatus.NO_CONTENT);
         }
         else{
+            headers.add("httpSatus", HttpStatus.CREATED.toString());
             return new ResponseEntity<Animal>(animal, headers, HttpStatus.CREATED);
         }
     }
@@ -73,9 +79,11 @@ public class AnimalController {
         headers.add("Controller", "updateAnimal");
 
         if (animal == null){
+            headers.add("httpSatus", HttpStatus.NOT_FOUND.toString());
             return new ResponseEntity<Animal>(null, headers, HttpStatus.NO_CONTENT);
         }
         else{
+            headers.add("httpSatus", HttpStatus.ACCEPTED.toString());
             return new ResponseEntity<Animal>(animal, headers, HttpStatus.ACCEPTED);
         }
     
@@ -88,9 +96,11 @@ public class AnimalController {
         headers.add("Controller", "deleteAnimal");
 
         if (animal == null){
+            headers.add("httpSatus", HttpStatus.NOT_FOUND.toString());
             return new ResponseEntity<Animal>(null, headers, HttpStatus.NO_CONTENT);
         }
         else{
+            headers.add("httpSatus", HttpStatus.ACCEPTED.toString());
             return new ResponseEntity<Animal>(animal, headers, HttpStatus.ACCEPTED);
         }
     }
