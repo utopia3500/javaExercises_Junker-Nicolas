@@ -43,8 +43,8 @@ public class UserController {
     }
 
     @DeleteMapping("/user")
-    public void deleteUser(@RequestParam Integer id) throws Exception{
-        userService.deleteUser(id);
+    public User deleteUser(@RequestParam Integer id) throws Exception{
+        return userService.deleteUser(id);
     }
 
 }

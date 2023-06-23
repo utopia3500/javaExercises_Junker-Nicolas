@@ -38,9 +38,14 @@ public class UserService {
 
     }
 
-    public void deleteUser(Integer id) throws Exception{
-        User user = new User(id, "default", 0);
-        dao.delete(user);
+    public User deleteUser(Integer id) throws Exception{
+        User user = dao.getById(id);
+        if (user != null){
+            dao.delete(user);
+            return user;
+        }
+        
+        return null;
     }
     
 }
