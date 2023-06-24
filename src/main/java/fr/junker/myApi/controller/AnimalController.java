@@ -31,7 +31,7 @@ public class AnimalController {
         headers.add("Controller", "getAnimals");
         if (list == null || list.size() == 0){
             headers.add("httpSatus", HttpStatus.NOT_FOUND.toString());
-            return new ResponseEntity<List<Animal>>(null, headers, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<List<Animal>>(null, headers, HttpStatus.NOT_FOUND);
         }
         else{
             headers.add("httpSatus", HttpStatus.ACCEPTED.toString());
@@ -48,7 +48,7 @@ public class AnimalController {
 
         if (animal == null){
             headers.add("httpSatus", HttpStatus.NOT_FOUND.toString());
-            return new ResponseEntity<Animal>(null, headers, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<Animal>(null, headers, HttpStatus.NOT_FOUND);
         }
         else{
             headers.add("httpSatus", HttpStatus.ACCEPTED.toString());
@@ -64,7 +64,7 @@ public class AnimalController {
         headers.add("Controller", "createAnimal");
         if (animal == null){
             headers.add("httpSatus", HttpStatus.NOT_FOUND.toString());
-            return new ResponseEntity<Animal>(null, headers, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<Animal>(null, headers, HttpStatus.NOT_FOUND);
         }
         else{
             headers.add("httpSatus", HttpStatus.CREATED.toString());
@@ -80,7 +80,7 @@ public class AnimalController {
 
         if (animal == null){
             headers.add("httpSatus", HttpStatus.NOT_FOUND.toString());
-            return new ResponseEntity<Animal>(null, headers, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<Animal>(null, headers, HttpStatus.NOT_FOUND);
         }
         else{
             headers.add("httpSatus", HttpStatus.ACCEPTED.toString());
@@ -97,7 +97,7 @@ public class AnimalController {
 
         if (animal == null){
             headers.add("httpSatus", HttpStatus.NOT_FOUND.toString());
-            return new ResponseEntity<Animal>(null, headers, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<Animal>(null, headers, HttpStatus.NOT_FOUND);
         }
         else{
             headers.add("httpSatus", HttpStatus.ACCEPTED.toString());
