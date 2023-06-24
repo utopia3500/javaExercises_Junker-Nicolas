@@ -31,6 +31,9 @@ public class AnimalService {
     }
 
     public Animal updateAnimal(Integer id, String name, String type, Integer weight) throws Exception{ 
+        if (dao.getById(id) == null){
+            return null;
+        }
         Animal animal = new Animal(id, name, type, weight);
         dao.update(animal);
         return animal;
