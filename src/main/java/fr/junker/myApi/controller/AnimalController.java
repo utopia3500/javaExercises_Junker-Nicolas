@@ -45,9 +45,9 @@ public class AnimalController {
             HttpHeaders headers = new HttpHeaders();
             headers.add("Controller", "GET /animals");
             headers.add("Comment exception: ", ex.getMessage());
-            headers.add("httpSatus", HttpStatus.BAD_REQUEST.toString());
+            headers.add("httpSatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
             System.err.println(ex.getMessage());
-            return new ResponseEntity<List<Animal>>(null, headers, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<List<Animal>>(null, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         
     }
@@ -74,9 +74,9 @@ public class AnimalController {
             HttpHeaders headers = new HttpHeaders();
             headers.add("Controller", "GET /animal/id");
             headers.add("Comment exception: ", ex.getMessage());
-            headers.add("httpSatus", HttpStatus.BAD_REQUEST.toString());
+            headers.add("httpSatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
             System.err.println(ex.getMessage());
-            return new ResponseEntity<Animal>(null, headers, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<Animal>(null, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
         
@@ -102,10 +102,10 @@ public class AnimalController {
             HttpHeaders headers = new HttpHeaders();
             headers.add("Controller", "POST /animal");
             headers.add("Comment exception: ", ex.getMessage());
-            headers.add("httpSatus", HttpStatus.BAD_REQUEST.toString());
+            headers.add("httpSatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
             System.err.println(ex.getMessage());
             ex.printStackTrace();
-            return new ResponseEntity<Animal>(null, headers, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<Animal>(null, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -130,9 +130,9 @@ public class AnimalController {
             HttpHeaders headers = new HttpHeaders();
             headers.add("Controller", "PUT /animal");
             headers.add("Comment exception: ", ex.getMessage());
-            headers.add("httpSatus", HttpStatus.BAD_REQUEST.toString());
+            headers.add("httpSatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
             System.err.println(ex.getMessage());
-            return new ResponseEntity<Animal>(null, headers, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<Animal>(null, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     
     }
@@ -158,10 +158,10 @@ public class AnimalController {
         catch(Exception ex){
             HttpHeaders headers = new HttpHeaders();
             headers.add("Controller", "DELETE /animal");
-            headers.add("httpSatus", HttpStatus.BAD_REQUEST.toString());
+            headers.add("httpSatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
             headers.add("Comment exception: ", ex.getMessage());
             System.err.println(ex.getMessage());
-            return new ResponseEntity<Animal>(null, headers, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<Animal>(null, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
