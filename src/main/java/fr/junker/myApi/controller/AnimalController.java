@@ -37,8 +37,8 @@ public class AnimalController {
             }
             else{
                 headers.add("Comment", "requete réussie");
-                headers.add("httpSatus", HttpStatus.ACCEPTED.toString());
-                return new ResponseEntity<List<Animal>>(list, headers, HttpStatus.ACCEPTED);
+                headers.add("httpSatus", HttpStatus.OK.toString());
+                return new ResponseEntity<List<Animal>>(list, headers, HttpStatus.OK);
             }
         }
         catch(Exception ex){
@@ -65,9 +65,9 @@ public class AnimalController {
                 return new ResponseEntity<Animal>(null, headers, HttpStatus.NOT_FOUND);
             }
             else{
-                headers.add("httpSatus", HttpStatus.ACCEPTED.toString());
                 headers.add("Comment", "requete réussie");
-                return new ResponseEntity<Animal>(animal, headers, HttpStatus.ACCEPTED);
+                headers.add("httpSatus", HttpStatus.OK.toString());
+                return new ResponseEntity<Animal>(animal, headers, HttpStatus.OK);
             }
         }   
         catch(Exception ex){
@@ -122,9 +122,9 @@ public class AnimalController {
                 return new ResponseEntity<Animal>(null, headers, HttpStatus.NOT_FOUND);
             }
             else{
-                headers.add("httpSatus", HttpStatus.ACCEPTED.toString());
+                headers.add("httpSatus", HttpStatus.OK.toString());
                 headers.add("Comment", "requete réussie");
-                return new ResponseEntity<Animal>(animal, headers, HttpStatus.ACCEPTED);
+                return new ResponseEntity<Animal>(animal, headers, HttpStatus.OK);
             }
         }catch(Exception ex){
             HttpHeaders headers = new HttpHeaders();
@@ -150,9 +150,9 @@ public class AnimalController {
                 return new ResponseEntity<Animal>(null, headers, HttpStatus.NOT_FOUND);
             }
             else{
-                headers.add("httpSatus", HttpStatus.ACCEPTED.toString());
+                headers.add("httpSatus", HttpStatus.OK.toString());
                 headers.add("Comment", "requete réussie");
-                return new ResponseEntity<Animal>(animal, headers, HttpStatus.ACCEPTED);
+                return new ResponseEntity<Animal>(animal, headers, HttpStatus.OK);
             }
         }
         catch(Exception ex){
