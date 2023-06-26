@@ -32,6 +32,9 @@ public class UserService {
     }
 
     public User updateUser(Integer id, String name, Integer age) throws Exception{ 
+        if (dao.getById(id) == null){
+            return null;
+        }        
         User user = new User(id, name, age);
         dao.update(user);
         return user;
