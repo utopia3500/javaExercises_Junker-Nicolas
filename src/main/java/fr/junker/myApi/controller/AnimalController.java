@@ -32,7 +32,7 @@ public class AnimalController {
             headers.add("Controller", "GET /animals");
             if (list == null || list.size() == 0){
                 headers.add("Comment", "données non présentes en base");
-                headers.add("httpSatus", HttpStatus.NOT_FOUND.toString());
+                headers.add("httpStatus", HttpStatus.NOT_FOUND.toString());
                 return new ResponseEntity<List<Animal>>(null, headers, HttpStatus.NOT_FOUND);
             }
             else{
