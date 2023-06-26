@@ -104,7 +104,6 @@ public class AnimalController {
             headers.add("Comment exception: ", ex.getMessage());
             headers.add("httpSatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
             System.err.println(ex.getMessage());
-            ex.printStackTrace();
             return new ResponseEntity<Animal>(null, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
