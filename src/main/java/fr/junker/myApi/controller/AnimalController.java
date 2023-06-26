@@ -37,7 +37,7 @@ public class AnimalController {
             }
             else{
                 headers.add("Comment", "requete réussie");
-                headers.add("httpSatus", HttpStatus.OK.toString());
+                headers.add("httpStatus", HttpStatus.OK.toString());
                 return new ResponseEntity<List<Animal>>(list, headers, HttpStatus.OK);
             }
         }
@@ -45,36 +45,36 @@ public class AnimalController {
             HttpHeaders headers = new HttpHeaders();
             headers.add("Controller", "GET /animals");
             headers.add("Comment exception: ", ex.getMessage());
-            headers.add("httpSatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
+            headers.add("httpStatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
             System.err.println(ex.getMessage());
             return new ResponseEntity<List<Animal>>(null, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         
     }
 
-    @GetMapping("/animal/id")
+    @GetMapping("/animal")
     public ResponseEntity<Animal> getAnimal(@RequestParam Integer id){
         try{
             Animal animal = animalService.getAnimal(id);
             HttpHeaders headers = new HttpHeaders();
-            headers.add("Controller", "GET /animal/id");
+            headers.add("Controller", "GET /animal");
 
             if (animal == null){
-                headers.add("httpSatus", HttpStatus.NOT_FOUND.toString());
+                headers.add("httpStatus", HttpStatus.NOT_FOUND.toString());
                 headers.add("Comment", "donnée non trouvée en base");
                 return new ResponseEntity<Animal>(null, headers, HttpStatus.NOT_FOUND);
             }
             else{
                 headers.add("Comment", "requete réussie");
-                headers.add("httpSatus", HttpStatus.OK.toString());
+                headers.add("httpStatus", HttpStatus.OK.toString());
                 return new ResponseEntity<Animal>(animal, headers, HttpStatus.OK);
             }
         }   
         catch(Exception ex){
             HttpHeaders headers = new HttpHeaders();
-            headers.add("Controller", "GET /animal/id");
+            headers.add("Controller", "GET /animal");
             headers.add("Comment exception: ", ex.getMessage());
-            headers.add("httpSatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
+            headers.add("httpStatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
             System.err.println(ex.getMessage());
             return new ResponseEntity<Animal>(null, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -88,12 +88,12 @@ public class AnimalController {
             HttpHeaders headers = new HttpHeaders();
             headers.add("Controller", "POST /animal");
             if (animal == null){
-                headers.add("httpSatus", HttpStatus.NOT_FOUND.toString());
+                headers.add("httpStatus", HttpStatus.NOT_FOUND.toString());
                 headers.add("Comment", "erreur lors de la création en base");
                 return new ResponseEntity<Animal>(null, headers, HttpStatus.NOT_FOUND);
             }
             else{
-                headers.add("httpSatus", HttpStatus.CREATED.toString());
+                headers.add("httpStatus", HttpStatus.CREATED.toString());
                 headers.add("Comment", "requete réussie");
                 return new ResponseEntity<Animal>(animal, headers, HttpStatus.CREATED);
             }
@@ -102,7 +102,7 @@ public class AnimalController {
             HttpHeaders headers = new HttpHeaders();
             headers.add("Controller", "POST /animal");
             headers.add("Comment exception: ", ex.getMessage());
-            headers.add("httpSatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
+            headers.add("httpStatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
             System.err.println(ex.getMessage());
             return new ResponseEntity<Animal>(null, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -116,12 +116,12 @@ public class AnimalController {
             headers.add("Controller", "PUT /animal");
 
             if (animal == null){
-                headers.add("httpSatus", HttpStatus.NOT_FOUND.toString());
+                headers.add("httpStatus", HttpStatus.NOT_FOUND.toString());
                 headers.add("Comment", "donnée non trouvée en base");
                 return new ResponseEntity<Animal>(null, headers, HttpStatus.NOT_FOUND);
             }
             else{
-                headers.add("httpSatus", HttpStatus.OK.toString());
+                headers.add("httpStatus", HttpStatus.OK.toString());
                 headers.add("Comment", "requete réussie");
                 return new ResponseEntity<Animal>(animal, headers, HttpStatus.OK);
             }
@@ -129,7 +129,7 @@ public class AnimalController {
             HttpHeaders headers = new HttpHeaders();
             headers.add("Controller", "PUT /animal");
             headers.add("Comment exception: ", ex.getMessage());
-            headers.add("httpSatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
+            headers.add("httpStatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
             System.err.println(ex.getMessage());
             return new ResponseEntity<Animal>(null, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -144,12 +144,12 @@ public class AnimalController {
             headers.add("Controller", "DELETE /animal");
 
             if (animal == null){
-                headers.add("httpSatus", HttpStatus.NOT_FOUND.toString());
+                headers.add("httpStatus", HttpStatus.NOT_FOUND.toString());
                 headers.add("Comment", "donnée non trouvée en base");
                 return new ResponseEntity<Animal>(null, headers, HttpStatus.NOT_FOUND);
             }
             else{
-                headers.add("httpSatus", HttpStatus.OK.toString());
+                headers.add("httpStatus", HttpStatus.OK.toString());
                 headers.add("Comment", "requete réussie");
                 return new ResponseEntity<Animal>(animal, headers, HttpStatus.OK);
             }
@@ -157,7 +157,7 @@ public class AnimalController {
         catch(Exception ex){
             HttpHeaders headers = new HttpHeaders();
             headers.add("Controller", "DELETE /animal");
-            headers.add("httpSatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
+            headers.add("httpStatus", HttpStatus.INTERNAL_SERVER_ERROR.toString());
             headers.add("Comment exception: ", ex.getMessage());
             System.err.println(ex.getMessage());
             return new ResponseEntity<Animal>(null, headers, HttpStatus.INTERNAL_SERVER_ERROR);
